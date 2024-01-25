@@ -20,3 +20,24 @@ jobs:
 
       - name: Installations des dépendances
         run: npm install
+
+      - name: Run Tests
+        run: npm test
+
+      - name: Build Application
+        run: npm run build
+
+      - name: Deploy to Production
+        run: |
+          if [ ${{ github.event_name }} == 'push' ] && [ ${{ github.ref }} == 'refs/heads/main' ]; then
+            # Deploying the application to production
+
+            # Copy the contents of the 'views' folder to the deployment directory
+            cp -r views/* deployment_directory/
+
+            # You may need additional commands for deploying other files or configuring your server
+            # For example, if you are using Node.js and Express for your server, you might restart the server here
+            # Example: pm2 restart my_server
+
+            echo "Deployment to production completed."
+          fi
