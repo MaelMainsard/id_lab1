@@ -1,6 +1,4 @@
-import { assert } from 'chai';
 import ioClient from 'socket.io-client';
-import server from '../server.js';
 
 describe('Socket.io Server', function () {
   let socket;
@@ -12,5 +10,4 @@ describe('Socket.io Server', function () {
       done();
     });
   });
-
 });
